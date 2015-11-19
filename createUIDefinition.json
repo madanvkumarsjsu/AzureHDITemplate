@@ -11,56 +11,7 @@
                 "osPlatform": "Windows"
             }
         ],
-        "steps": [
-            {
-                "name": "Credentials",
-                "label": "Access Settings",
-                "subLabel": {
-                    "preValidation": "Configure the Access settings",
-                    "postValidation": "Done"
-                },
-                "bladeTitle": "Credential settings",
-                "elements": [
-                    {
-                        "name": "clusterLoginUserName",
-                        "type": "Microsoft.Compute.UserNameTextBox",
-                        "label": "clusterLoginUserName",
-                        "toolTip": "Cluster Login Name for HDI cluster",
-                        "defaultValue": {
-                            "type": "admin"
-                        }
-                    },
-                    {
-                        "name": "clusterLoginPassword",
-                        "type": "Microsoft.Compute.CredentialsCombo",
-                        "label": {
-                            "password": "Password",
-                            "confirmPassword": "Confirm password"
-                        },
-                        "toolTip": {
-                            "password": "Cluster password for the HDI cluster"
-                        }
-                    },
-                    {
-                        "name": "sshUserName",
-                        "type": "Microsoft.Compute.UserNameTextBox",
-                        "label": "sshUserName",
-                        "toolTip": "Cluster SSH User"
-                    },
-                    {
-                        "name": "sshPassword",
-                        "type": "Microsoft.Compute.CredentialsCombo",
-                        "label": {
-                            "password": "Password",
-                            "confirmPassword": "Confirm password"
-                        },
-                        "toolTip": {
-                            "password": "SSH password"
-                        }
-                    }
-                ]
-            }
-        ],
+        "steps": [],
         "outputs": { 
             "location": "[location()]",
             "clusterName": "[steps('basics').clusterName]",
