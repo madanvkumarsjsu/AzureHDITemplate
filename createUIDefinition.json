@@ -11,7 +11,7 @@
                 "osPlatform": "Windows"
             }
         ],
-        "steps": [ 
+        "steps": [
             {
                 "name": "Credentials",
                 "label": "Access Settings",
@@ -21,74 +21,53 @@
                 },
                 "bladeTitle": "Credential settings",
                 "elements": [
-					{
-					    "name": "clusterLoginUserName",
+                    {
+                        "name": "clusterLoginUserName",
                         "type": "Microsoft.Compute.UserNameTextBox",
                         "label": "clusterLoginUserName",
                         "toolTip": "Cluster Login Name for HDI cluster",
                         "defaultValue": {
                             "type": "admin"
                         }
-					},
-                    {
-					    "name": "clusterLoginPassword",
-                        "type": "Microsoft.Compute.UserNameTextBox",
-                        "label": "clusterLoginUserName",
-                        "toolTip": "Cluster Login Name for HDI cluster",
-                        "defaultValue": {
-                            "type": "admin"
-                        }
-					},
-                    {
-                        "name": "vmSize",
-                        "type": "Microsoft.Compute.SizeSelector",
-                        "label": "Virtual machine size",
-                        "toolTip": "The size of the virtual machine for the domain controller.",
-                        "recommendedSizes": [
-                            "Standard_D1",
-                            "Standard_D2",
-                            "Standard_D3"
-                        ],
-                        "constraints": {
-                            "allowedSizes": [
-                              "Standard_D1",
-                              "Standard_D2",
-                              "Standard_D3",
-                              "Standard_D4",
-                              "Standard_D11",
-                              "Standard_D12",
-                              "Standard_D13",
-                              "Standard_D14"
-                            ]
-                        },
-                        "osPlatform": "Windows",
-                        "imageReference": {
-                            "publisher": "MicrosoftWindowsServer",
-                            "offer": "WindowsServer",
-                            "sku": "2012-R2-Datacenter"
-                        },
-                        "count": "[steps('infrastructureConfig').vmCount]"
                     },
                     {
-                      "name": "dnsAndPublicIP",
-                      "type": "Microsoft.Network.PublicIpAddressCombo",
-                      "label": {
-                        "publicIpAddress": "Public IP address",
-                        "domainNameLabel": "DNS Prefix"
-                      },
-                      "toolTip": {
-                        "domainNameLabel": "DNS Prefix for the VM public IP addresses."
-                      },
-                      "defaultValue": {
-                        "publicIpAddressName": "publicIP"
-                      },
-                      "options": {
-                        "hideNone": true
-                      }
+                        "name": "clusterLoginPassword",
+                        "type": "Microsoft.Compute.CredentialsCombo",
+                        "label": {
+                            "password": "Password",
+                            "confirmPassword": "Confirm password"
+                        },
+                        "toolTip": {
+                            "password": "Cluster password for the HDI cluster"
+                        }
+                    },
+                    {
+                        "name": "sshUserName",
+                        "type": "Microsoft.Compute.UserNameTextBox",
+                        "label": "sshUserName",
+                        "toolTip": "Cluster SSH User"
+                    },
+                    {
+                        "name": "sshPassword",
+                        "type": "Microsoft.Compute.CredentialsCombo",
+                        "label": {
+                            "password": "Password",
+                            "confirmPassword": "Confirm password"
+                        },
+                        "toolTip": {
+                            "password": "SSH password"
+                        }
                     }
                 ]
             }
         ],
-        "outputs": { }
+        "outputs": {
+            "location": "[location()]",
+            "clusterName": "[steps('basics').clusterName]",
+            "clusterLoginUserName": "[steps('Credentials').clusterLoginUserName]",
+            "clusterLoginPassword" : "[steps('Credentials').clusterLoginPassword]",
+            "sshUserName": "[steps('Credentials').sshUserName]",
+            "sshPassword": "[steps('Credentials').sshPassword]"
+        }
     }
 }
