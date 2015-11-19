@@ -14,11 +14,7 @@
         "steps": [],
         "outputs": { 
             "location": "[location()]",
-            "clusterName": "[steps('basics').clusterName]",
-            "clusterLoginUserName": "[steps('Credentials').clusterLoginUserName]",
-            "clusterLoginPassword" : "[steps('Credentials').clusterLoginPassword]",
-            "sshUserName": "[steps('Credentials').sshUserName]",
-            "sshPassword": "[steps('Credentials').sshPassword]"
+            "clusterName": "[steps('basics').clusterName]"
         }
     }
 }
