@@ -61,7 +61,7 @@
                 ]
             }
         ],
-        "outputs": {
+        "outputs": { 
             "location": "[location()]",
             "clusterName": "[steps('basics').clusterName]",
             "clusterLoginUserName": "[steps('Credentials').clusterLoginUserName]",
