@@ -11,10 +11,32 @@
                 "osPlatform": "Windows"
             }
         ],
-        "steps": [],
+        "steps": [
+			{
+                "name": "Credentials",
+                "label": "Access Settings",
+                "subLabel": {
+                    "preValidation": "Configure the Access settings",
+                    "postValidation": "Done"
+                },
+                "bladeTitle": "Credential settings",
+                "elements": [
+                    {
+                        "name": "clusterLoginUserName",
+                        "type": "Microsoft.Compute.UserNameTextBox",
+                        "label": "clusterLoginUserName",
+                        "toolTip": "Cluster Login Name for HDI cluster",
+                        "defaultValue": {
+                            "type": "admin"
+                        }
+                    }
+                ]
+            }
+		],
         "outputs": { 
             "location": "[location()]",
-            "clusterName": "[steps('basics').clusterName]"
+            "clusterName": "[steps('basics').clusterName]",
+			"clusterLoginUserName": "[steps('Credentials').clusterLoginUserName]"
         }
     }
 }
