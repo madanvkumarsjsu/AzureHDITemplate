@@ -27,6 +27,7 @@
                         "type": "Microsoft.Compute.UserNameTextBox",
                         "label": "clusterLoginUserName",
                         "toolTip": "Cluster Login Name for HDI cluster",
+                        "osPlatform": "Windows",
                         "defaultValue": {
                             "type": "admin"
                         }
