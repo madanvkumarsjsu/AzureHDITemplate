@@ -14,6 +14,7 @@
         "steps": [
 			{
                 "name": "Credentials",
+				"type": "Microsoft.Common.Selector",
                 "label": "Access Settings",
                 "subLabel": {
                     "preValidation": "Configure the Access settings",
